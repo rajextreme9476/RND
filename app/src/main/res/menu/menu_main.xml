@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="info.android.imagefilters.MainActivity">
+    <item
+        android:id="@+id/action_day_view"
+        android:orderInCategory="100"
+        android:title="Day View"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_week_view"
+        android:orderInCategory="100"
+        android:title="Week View"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/action_month_view"
+        android:orderInCategory="100"
+        android:title="Month View"
+        app:showAsAction="collapseActionView" />
+
+
+</menu>
