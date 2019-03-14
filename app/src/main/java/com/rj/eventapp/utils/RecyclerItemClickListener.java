@@ -1,4 +1,4 @@
-package com.rj.eventapp;
+package com.rj.eventapp.utils;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

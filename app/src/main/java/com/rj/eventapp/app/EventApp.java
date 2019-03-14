@@ -1,4 +1,4 @@
-package com.rj.eventapp;
+package com.rj.eventapp.app;
 
 import android.app.Application;
 

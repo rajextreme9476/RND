@@ -9,12 +9,11 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.rj.eventapp.R;
-import com.rj.eventapp.RecyclerItemClickListener;
+import com.rj.eventapp.utils.RecyclerItemClickListener;
 import com.rj.eventapp.model.EmailModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 

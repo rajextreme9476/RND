@@ -1,4 +1,4 @@
-package com.rj.eventapp;
+package com.rj.eventapp.activity;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -17,22 +17,27 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rj.eventapp.R;
 import com.rj.eventapp.adapter.EventListAdapter;
+import com.rj.eventapp.model.EventModel;
 
 import java.util.ArrayList;
 
-public class EventsActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     private ArrayList<EventModel> modelArrayList;
+    String userId = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_all_events);
         getSupportActionBar().setTitle(getString(R.string.eventList));
+
         init();
+
     }
 
     private void getAllEvents() {
@@ -72,24 +77,31 @@ public class EventsActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.action_day_view) {
 
+
+            Intent intent = new Intent(this, CalendarViewActivity.class);
+            intent.putExtra("eventList",modelArrayList);
+            startActivity(intent);
             return true;
         }
 
-        if (id == R.id.action_week_view) {
+       /* if (id == R.id.action_week_view) {
 
+            Intent intent = new Intent(this, EventAgendaActivity.class);
+            startActivity(intent);
             return true;
         }
 
         if (id == R.id.action_month_view) {
 
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -106,7 +118,7 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Click action
-                Intent intent = new Intent(EventsActivity.this, MainActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, CreateEventActivity.class);
                 startActivity(intent);
             }
         });

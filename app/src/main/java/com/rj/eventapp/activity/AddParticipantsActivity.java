@@ -1,21 +1,19 @@
-package com.rj.eventapp;
+package com.rj.eventapp.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.rj.eventapp.R;
+import com.rj.eventapp.utils.RecyclerItemClickListener;
 import com.rj.eventapp.adapter.InivtePeopleListAdapter;
 import com.rj.eventapp.model.EmailModel;
 
@@ -24,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class InvitePeople extends AppCompatActivity {
+public class AddParticipantsActivity extends AppCompatActivity {
 
     ArrayList<EmailModel> emailModels;
     private Map<String, Boolean> selectedContactIds = new HashMap<>();
@@ -68,7 +66,7 @@ public class InvitePeople extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(InvitePeople.this, new RecyclerItemClickListener.OnItemClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(AddParticipantsActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
 
@@ -118,8 +116,6 @@ public class InvitePeople extends AppCompatActivity {
             returnIntent.putStringArrayListExtra("list",arrayList);
             setResult(Activity.RESULT_OK,returnIntent);
             finish();
-
-
 
             return true;
         }

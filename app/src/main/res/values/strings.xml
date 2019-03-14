@@ -39,4 +39,9 @@
     <string name="eventList">Event List</string>
     <string name="addParticipants"> Add participants</string>
     <string name="createEvent">New Event</string>
+
+    <string name="action_today">Today</string>
+    <string name="action_day_view">Day view</string>
+    <string name="action_three_day_view">3 day view</string>
+    <string name="action_week_view">Week view</string>
 </resources>

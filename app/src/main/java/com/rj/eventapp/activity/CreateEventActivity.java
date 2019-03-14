@@ -1,4 +1,4 @@
-package com.rj.eventapp;
+package com.rj.eventapp.activity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -14,19 +14,21 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rj.eventapp.R;
+import com.rj.eventapp.utils.Utils;
+import com.rj.eventapp.model.EventModel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-public class MainActivity extends AppCompatActivity {
+public class CreateEventActivity extends AppCompatActivity {
 
     EditText etDate,etTime,etEventAgenda,etParticipants;
     Button btnCreate;
@@ -47,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         modelArrayList = new ArrayList<>();
         mFirebaseInstance = FirebaseDatabase.getInstance();
-      //  mFirebaseInstance.setPersistenceEnabled(true);
         mFirebaseDatabase = mFirebaseInstance.getReference("Event");
 
         etDate = findViewById(R.id.etDate);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,InvitePeople.class);
+                Intent intent = new Intent(CreateEventActivity.this, AddParticipantsActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -82,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 EventModel eventModel = new EventModel();
                 eventModel.setEventId(System.currentTimeMillis());

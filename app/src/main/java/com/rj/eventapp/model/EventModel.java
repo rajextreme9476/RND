@@ -1,8 +1,11 @@
-package com.rj.eventapp;
+package com.rj.eventapp.model;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class EventModel {
+public class EventModel implements Serializable {
 
     private long eventId;
     private String userId;

@@ -1,4 +1,4 @@
-package com.rj.eventapp;
+package com.rj.eventapp.utils;
 
 import java.text.DateFormat;
 import java.util.Calendar;
